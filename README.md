@@ -22,8 +22,9 @@ please re-write your own BusinessHandler
 - read(topic, key); //receive all messages if key is blank
 
 #### kafka.properties
-kafka.broker.list=ip:9092
-kafka.zookeeper=ip:2181
-kafka.topic.custom=test
-kafka.topic.common=topicCommon
-kafka.group.common=groupCommon
+
+kafka.broker.list=ip:9092 
+kafka.zookeeper=ip:2181 
+kafka.topic.custom=test 
+kafka.topic.common=topicCommon 
+kafka.group.common=groupCommon 
