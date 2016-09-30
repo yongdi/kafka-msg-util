@@ -1,24 +1,29 @@
-## 读写消息服务，目前支持kafka
+## message service
 
-#### 使用
+#### use
 
 ```xml
 <dependency>
-  <groupId>com.jkys.msg</groupId>
+  <groupId>com.voyg.msg</groupId>
   <artifactId>msg-util</artifactId>
   <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
 
-实例：Example
-测试：MyTest
+example：Example
+test：MyTest
 
-但不建议直接用jar包，里面的业务处理类必须实际去实现
-请直接copy代码到自己的项目中去，重写业务实现类
-
+please re-write your own BusinessHandler
 
 #### kafka
 
-- write(topic, key, message);//发消息
+- write(topic, key, message);//send
 
-- read(topic, key); //如果key为null或空白，则收取全部消息
+- read(topic, key); //receive all messages if key is blank
+
+#### kafka.properties
+kafka.broker.list=ip:9092
+kafka.zookeeper=ip:2181
+kafka.topic.custom=test
+kafka.topic.common=topicCommon
+kafka.group.common=groupCommon
