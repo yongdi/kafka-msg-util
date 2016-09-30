@@ -74,7 +74,7 @@ public class KafkaMsgService implements IMessageService {
 									msgKey, msgStr);
 							Future<String> future = woker.submit(new BussinessHandler(topic, key, msgStr));
 							try {
-								log.info("kafka message handle completed within 1 second："+future.get(1, TimeUnit.SECONDS));
+								log.info("kafka message handle completed within 1 second: "+future.get(1, TimeUnit.SECONDS));
 							} catch (TimeoutException ignored){}
 						}
 					} catch (Exception e) {
@@ -99,7 +99,7 @@ public class KafkaMsgService implements IMessageService {
 					String msgKey = messageAndMetadata.key() == null ? null : new String(messageAndMetadata.key(), "UTF-8");
 					msgStr = new String(messageAndMetadata.message(), "UTF-8");
 					if (Objects.equals(key, msgKey) || StringUtils.isBlank(key)) {
-						log.info("收到kafka消息: {}-{}-{}-{}: {}", topic, messageAndMetadata.partition(), messageAndMetadata.offset(),
+						log.info("kafka message received: {}-{}-{}-{}: {}", topic, messageAndMetadata.partition(), messageAndMetadata.offset(),
 								msgKey, msgStr);
 						return msgStr;
 					}
