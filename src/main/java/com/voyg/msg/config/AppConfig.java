@@ -76,6 +76,7 @@ public class AppConfig {
 	public ConsumerConfig consumerConfig(){
 		Properties properties = new Properties();
 		properties.put("zookeeper.connect", env.getProperty("kafka.zookeeper"));
+                /*pls note that if you use the same group.id with others, everybody will shares the same message queue. that means, one message can be only received by one consumer. use different group.id if you don't want to be affected by other consumer*/
 		properties.put("group.id", env.getProperty("kafka.group.common"));
 		properties.put("zookeeper.session.timeout.ms", "10000");
 		properties.put("zookeeper.sync.time.ms", "200");
